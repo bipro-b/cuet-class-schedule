@@ -13,6 +13,7 @@ const companySchema = mongoose.Schema({
         type:String,
         required: true,
     },
+    
     imageURLs:[
        {
         type:String,
