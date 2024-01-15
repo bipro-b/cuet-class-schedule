@@ -12,10 +12,12 @@ app.get("/",(req,res)=>{
 })
 
  const authRoute = require("./src/routes/authRoute");
+ const courseRoute = require("./src/routes/courseRoute")
 /*const categoryRoute = require("./src/routes/category")
 const userRoute = require("./src/routes/user") */
 
 app.use("/api/auth",authRoute);
+app.use("/api/course",courseRoute);
 /*app.use("/api/v1/category",categoryRoute);
 app.use("/api/v1/user",userRoute);
  */
