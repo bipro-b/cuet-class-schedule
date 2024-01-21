@@ -7,7 +7,6 @@ function Navbar() {
         <li>Login</li>
         <li>BOUT</li>
 
-        <h2>Hi </h2>
         </>
     )
 }
