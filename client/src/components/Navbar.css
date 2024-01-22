@@ -1,0 +1,46 @@
+/* Navbar.css */
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .nav-link:hover {
+    color: #ffd700; /* Change the color on hover */
+  }
+  
+  .user-section {
+    /* Add styles for user authentication or profile section */
+  }
+  
+  /* Add additional styles as needed */
+  
