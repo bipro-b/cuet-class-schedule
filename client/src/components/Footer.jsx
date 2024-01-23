@@ -1,11 +1,15 @@
+// Footer.jsx
 import React from 'react';
+import './Footer.css';
 
 const Footer = () => {
-    return (
-        <div>
-            <h1>Footer</h1>
-        </div>
-    );
+  return (
+    <footer className="footer">
+      <div className="container">
+        <p>&copy; 2024 Class Routine Management System. All rights reserved.</p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
