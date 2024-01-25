@@ -105,8 +105,8 @@ const courseSchema = yup.object().shape({
                                       <select
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.MultipleChoice}
-                                        name="MultipleChoice"
+                                        value={values.Day}
+                                        name="Day"
                                         className="loginInput"
                                       >
                                         <option value="" label="" />
@@ -117,8 +117,8 @@ const courseSchema = yup.object().shape({
                                       <select
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        value={values.MultipleChoice}
-                                        name="MultipleChoice"
+                                        value={values.Time}
+                                        name="Time"
                                         className="loginInput"
                                       >
                                         <option value="" label="" />
