@@ -19,34 +19,36 @@ const courseSchema = yup.object().shape({
   };
   const CourseCoordinator = () =>
 {
-    // const dispatch = useDispatch();
-    // const navigate = useNavigate();
-    // const formsubmit = async (values, onSubmitProps) => {
-    //     const loggedInResponse = await fetch(`${process.env.REACT_APP_API_URL}/auth/login`, {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify(values),
-    //     });
-    //     const loggedIn = await loggedInResponse.json();
-    //     onSubmitProps.resetForm();
-    //     if (loggedIn.user) {
-    //       const name=loggedIn.user.firstName+" "+loggedIn.user.lastName;
-    //       dispatch(
-    //         setLogin({
-    //           user: loggedIn.user,
-    //           id: loggedIn.user._id,
-    //           name: name,
-    //           token: loggedIn.token,
-    //         })
-    //       );
-    //       const id=loggedIn.user._id;
-    //       const path = `/profile/${id}`;
-    //       navigate(path);
-    //     }
-    //     else{
-    //       alert("Wrong email or password");
-    //     }
-    //   };
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const formsubmit = async (values, onSubmitProps) => {
+       console.log(values);
+        // const loggedInResponse = await fetch(`http://localhost:5000/`, {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify(values),
+        // });
+       // const loggedIn = await loggedInResponse.json();
+        onSubmitProps.resetForm();
+        // if (loggedIn.user) {
+        //   const name=loggedIn.user.firstName+" "+loggedIn.user.lastName;
+        //   dispatch(
+        //     setLogin({
+        //       user: loggedIn.user,
+        //       id: loggedIn.user._id,
+        //       name: name,
+        //       token: loggedIn.token,
+        //     })
+        //   );
+        //   const id=loggedIn.user._id;
+        //   const path = `/profile/${id}`;
+        const path = `/`;
+          navigate(path);
+        // }
+        // else{
+        //   alert("Wrong email or password");
+        // }
+      };
      const handleFormSubmit = async (values, onSubmitProps) => {
         await formsubmit(values, onSubmitProps);
       };
