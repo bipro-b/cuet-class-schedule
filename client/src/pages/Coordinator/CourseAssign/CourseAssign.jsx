@@ -23,7 +23,7 @@ const courseSchema = yup.object().shape({
     const navigate = useNavigate();
     const formsubmit = async (values, onSubmitProps) => {
        console.log(values);
-        // const loggedInResponse = await fetch(`http://localhost:5000/`, {
+        // const loggedInResponse = await fetch(`http://localhost:5000/api/course`, {
         //   method: "POST",
         //   headers: { "Content-Type": "application/json" },
         //   body: JSON.stringify(values),
