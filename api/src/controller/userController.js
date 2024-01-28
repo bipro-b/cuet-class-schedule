@@ -1,4 +1,5 @@
-const User = require("../model/userModel")
+const User = require("../model/userModel");
+const { getCompanyServiceById } = require("../service/getUserServiceByEmail");
 
 exports.getUsers = async(req,res,next)=>{
     try {
@@ -17,5 +18,28 @@ exports.getUsers = async(req,res,next)=>{
             error:error.message
         })
         
+    }
+}
+
+exports.getUserByEmail = async(req,res,next)=>{
+    try {
+        
+        const {email} = req.params;
+
+        const result = await getCompanyServiceById(email);
+
+        res.status(200).json({
+            status:"Success",
+            message:"Successfully fetch data.",
+            result
+            
+        })
+        
+    } catch (error) {
+        res.status(400).json({
+            status:"Fails",
+            message:"Couldn't fetch data",
+            error:error.message
+        })
     }
 }

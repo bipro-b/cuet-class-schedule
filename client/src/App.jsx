@@ -10,6 +10,7 @@ function App() {
     <>
     
   <BrowserRouter>
+  
   <Routes>
     <Route path='/' element={<Dashboard/>} />
     <Route path='/form_submit' element={<CourseCoordinator/>} />
