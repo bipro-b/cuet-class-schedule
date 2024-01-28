@@ -19,7 +19,6 @@ const useFirebase = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false);
-  const [teacher, setTeacher] = useState(false);
 
   const auth = getAuth();
 
@@ -31,18 +30,18 @@ const useFirebase = () => {
     });
   };
 
-  const registerUser = (email, password, name, navigate) => {
+  const registerUser = (username,department,email,password, navigate) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setAuthError("");
-        const newUser = { email, displayName: name };
+        const newUser = {displayName: username,email, department,password };
         setUser(newUser);
         // Save user to the database
-        saveUser(email, name, "POST");
+        saveUser(username,department,email,password,"POST");
         //send name to firebase after creation
         updateProfile(auth.currentUser, {
-          displayName: name,
+          displayName: username,
         })
           .then(() => {})
           .catch((error) => {});
@@ -84,16 +83,12 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`https://l-tech-server.onrender.com/users/${user.email}`)
+    fetch(`http://localhost:5000/api/auth/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
 
-  useEffect(() => {
-    fetch(`https://l-tech-server.onrender.com/user/${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setTeacher(data.teacher));
-  }, [user.email]);
+
 
   const logout = () => {
     setIsLoading(true);
@@ -107,21 +102,35 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const saveUser = (email, displayName, method) => {
-    const user = { email, displayName };
-    fetch("https://l-tech-server.onrender.com/users", {
-      method: method,
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    }).then();
+  const saveUser = async (username, department, email, password, method) => {
+    const user = { username, department, email, password };
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      });
+  
+      if (!response.ok) {
+        // Handle the error here, e.g., log it or throw an error
+        throw new Error('Failed to save user');
+      }
+  
+      // You can do something with the response if needed
+      const data = await response.json();
+      console.log('User saved successfully:', data);
+    } catch (error) {
+      // Handle any errors that occurred during the fetch
+      console.error('Error saving user:', error.message);
+    }
   };
+  
   return {
     signInUsingGoogle,
     user,
     admin,
-    teacher,
     isLoading,
     authError,
     registerUser,

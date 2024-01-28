@@ -1,75 +1,65 @@
-import React from "react";
-import { Nav, Navbar, Container } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-// import useAuth from "../../../hooks/useAuth";
-
 import logo from "../images/logo.png";
+import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
-const Navbar = () => {
-  console.log();
+
+const NavBar = () => {
+  const { user, logout, teacher } = useAuth();
+
   const activeStyle = {
     fontWeight: "bold",
     color: "rgba(0, 0, 0, 0.312)",
   };
-  const { user, logout, teacher } = useAuth();
-  console.log(teacher);
+
   return (
-    <div className="header ">
-      <Navbar
-        bg="dark"
-        style={{ color: "rgba(0, 0, 0, 0.312)" }}
-        variant={"dark"}
-        expand="lg"
-      >
-        <Container>
-          <Navbar.Brand href="home">
-            <span>
-              {" "}
-              <img src={logo} style={{ width: "50px" }} alt="" />
-            </span>
-            Routine
+    <div className="header">
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container style={{display:"flex", justifyContent:"center", alignItems:"center",alignContent:"space-around" }}>
+          <Navbar.Brand as={NavLink} to="/home">
+            <img
+              src={logo}
+              alt="Logo"
+              width="50"
+              className="d-inline-block align-top"
+            />{" "}
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className=" mx-auto  my-lg-0 me-0 "
-              style={{ maxHeight: "375px" }}
-              navbarScroll
-            >
-              <NavLink to="/" activeStyle={activeStyle}>
+          <Navbar.Collapse id="navbarScroll" style={{display:"flex",  justifyContent:"center", alignItems:"center",alignContent:"space-around"}}>
+            <Nav className="mx-auto" style={{ maxHeight: "375px" , display:"flex" }}>
+              <NavLink to="/" className="nav-link" activeStyle={activeStyle}>
                 Home
               </NavLink>
-              <NavLink to="/about" activeStyle={activeStyle}>
+              <NavLink to="/about" className="nav-link" activeStyle={activeStyle}>
                 About
               </NavLink>
-              <NavLink to="/contact" activeStyle={activeStyle}>
+              <NavLink to="/contact" className="nav-link" activeStyle={activeStyle}>
                 Contact
               </NavLink>
+              {user.email && (
+                <NavLink to="/dashboard" className="nav-link" activeStyle={activeStyle}>
+                  Dashboard
+                </NavLink>
+              )}
             </Nav>
-            {teacher && (
-              <NavLink to="/instructor" activeStyle={activeStyle}>
-                Instructor
-              </NavLink>
-            )}
-            {user.email && (
-              <NavLink to="/dashboard" activeStyle={activeStyle}>
-                Dashbaord
-              </NavLink>
-            )}
-
-            {/* {user.email && (
-              <span style={{ color: "white" }}> {user.displayName} </span>
-            )} */}
-            {user.email ? (
-              <button
-                style={{ backgroundColor: "#212529", color: "white" }}
-                onClick={logout}
-              >
-                log Out
-              </button>
-            ) : (
-              <NavLink to="/login">Login</NavLink>
-            )}
+            <Nav className="ms-auto">
+              {user.email ? (
+                <>
+                  {/* Show user's display name */}
+                  <span className="nav-link text-white">{user.displayName}</span>
+                  <button
+                    className="btn btn-outline-light"
+                    onClick={logout}
+                  >
+                    Log Out
+                  </button>
+                </>
+              ) : (
+                <NavLink to="/login" className="nav-link" activeStyle={activeStyle}>
+                  Login
+                </NavLink>
+              )}
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -77,4 +67,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;

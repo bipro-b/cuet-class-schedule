@@ -2,13 +2,14 @@ const bcryptjs = require("bcryptjs");
 const User = require("../model/userModel");
 const { errorHandler } = require("../utils/error");
 const jwt = require("jsonwebtoken");
+
+
 exports.registerUser = async (req, res, next) => {
-  const { username, department,email, password,avatar } = req.body;
+  const { username, department, email, password } = req.body;
 
   const hashedPassword = bcryptjs.hashSync(password, 10);
 
-  const newUser = new User({ username, department,email, password: hashedPassword,avatar});
-
+  const newUser = new User({ username, department, email, password: hashedPassword });
 
   try {
     await newUser.save();
@@ -17,15 +18,13 @@ exports.registerUser = async (req, res, next) => {
       newUser
     });
   } catch (error) {
-    next(error);
     if (error.code === 11000) {
       return res.status(409).json({ error: "User already exists" });
     } else {
-      return res.status(500).json({ error: "Internal Server Error" });
+      return next(error); // Pass the error to the error-handling middleware
     }
   }
 };
-
 exports.logIn = async (req, res, next) => {
   const { email, password } = req.body;
 
