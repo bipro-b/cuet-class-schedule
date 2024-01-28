@@ -8,26 +8,7 @@ const courseSchema = mongoose.Schema({
         required: true
     },
     
-    teacherName:{
-        type: String,
-        required: true
-    },
-    levelTerm:{
-        type: String,
-        required: true
-    },
-    time:{
-        type: Number,
-        required: true
-    },
-    day:{
-        type: Number,
-        required: true
-    },
-    sessional:{
-        type: Boolean,
-        default:false
-    },
+   
 },
 { timestamps: true }
 )
