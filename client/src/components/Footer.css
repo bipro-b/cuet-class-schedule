@@ -1,3 +1,15 @@
-p{
-    color:red;
-}
+/* Footer.css */
+.footer {
+    background-color: #007bff; 
+    color: #fff; 
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+
+  
