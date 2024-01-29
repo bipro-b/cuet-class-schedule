@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../images/logo-image.png";
 import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 
@@ -21,8 +21,11 @@ const NavBar = () => {
               src={logo}
               alt="Logo"
               width="50"
-              className="d-inline-block align-top"
+              className="logo-image"
             />{" "}
+          </Navbar.Brand>
+          <Navbar.Brand as={NavLink} to="/home" className="brand">
+            Class Routine Management
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" style={{display:"flex",  justifyContent:"center", alignItems:"center",alignContent:"space-around"}}>
