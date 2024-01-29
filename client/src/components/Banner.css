@@ -1,0 +1,11 @@
+.banner {
+    background-image: url('../images/tsc.jpg');
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    padding: 20px 50px; /* Adjust padding as needed */
+    text-align: center;
+    min-height: 100px; /* Adjust the minimum height as needed */
+    font-size: 1.5rem; /* Adjust the font size as needed */
+  }
