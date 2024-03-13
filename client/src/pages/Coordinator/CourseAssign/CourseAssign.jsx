@@ -112,8 +112,8 @@ const courseSchema = yup.object().shape({
                                         className="loginInput"
                                       >
                                         <option value="" label="" />
-                                        <option value="Sunday" label="Sunday" />
-                                         <option value="Monday" label="Monday" />
+                                        <option value="1" label="Sunday" />
+                                         <option value="2" label="Monday" />
                                         </select>
                                       <h1>Select time slot</h1>
                                       <select

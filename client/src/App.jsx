@@ -4,6 +4,7 @@ import NavBar from './components/Navbar';
 import AuthProvider from './hooks/authProvider';
 import Login from './components/Logging/Login';
 import Register from './components/Logging/Register';
+import Dashboard from './pages/Coordinator/Dashboard/Dashboard';
 function App() {
   return (
     <>
@@ -17,8 +18,8 @@ function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-    {/* <Route path='/' element={<Dashboard/>} />
-    <Route path='/form_submit' element={<CourseCoordinator/>} />
+    <Route path='/dashboard' element={<Dashboard/>} />
+    {/* <Route path='/form_submit' element={<CourseCoordinator/>} />
     <Route path='/Teacher' element={<AssignedCourse/>} /> */}
      {/* <Route path='/sign-in' element={<SignIn/>} />
     <Route path='/sign-up' element={<SignUp/>} />
