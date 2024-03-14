@@ -48,6 +48,7 @@ const Dashboard = ({ id }) => {
             {
               data1[data[i].Day][data[i].Time]=data[i].CourseCode;
             }
+            else continue;
             if (solve(ma | (1 << i))) {
                 return dp[ma] = 1;
             }
