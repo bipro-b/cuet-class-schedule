@@ -3,28 +3,24 @@ const mongoose = require("mongoose");
 
 const courseSchema = mongoose.Schema({
 
-    courseCode:{
+    CourseCode:{
         type: String,
         required: true
     },
-    
-    teacherName:{
+    TeacherName:{
         type: String,
         required: true
     },
-    levelTerm:{
-        type: String,
-        required: true
-    },
-    time:{
+    Day:{
         type: Number,
         required: true
     },
-    day:{
+    Time:{
         type: Number,
         required: true
     },
-    sessional:{
+   
+    Sessional:{
         type: Boolean,
         default:false
     },
