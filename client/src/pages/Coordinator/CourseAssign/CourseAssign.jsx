@@ -6,15 +6,13 @@ import { useDispatch } from "react-redux";
 
 const courseSchema = yup.object().shape({
     TeacherName: yup.string().required("required"),
-    TeacherCode: yup.string().required("required"),
-    CourseName: yup.string().required("required"),
+    Sessional: yup.string().required("required"),
     CourseCode: yup.string().required("required"),
   });
 
   const initialValuesCourse = {
     TeacherName: "",
-    TeacherCode: "",
-    CourseName: "",
+    Sessional: "",
     CourseCode: "",
   };
   const CourseCoordinator = () =>
@@ -22,32 +20,16 @@ const courseSchema = yup.object().shape({
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const formsubmit = async (values, onSubmitProps) => {
-       console.log(values);
-        // const loggedInResponse = await fetch(`http://localhost:5000/api/course`, {
-        //   method: "POST",
-        //   headers: { "Content-Type": "application/json" },
-        //   body: JSON.stringify(values),
-        // });
-       // const loggedIn = await loggedInResponse.json();
+       //console.log(values);
+        const loggedInResponse = await fetch(`http://localhost:5000/api/course`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
+       const loggedIn = await loggedInResponse.json();
         onSubmitProps.resetForm();
-        // if (loggedIn.user) {
-        //   const name=loggedIn.user.firstName+" "+loggedIn.user.lastName;
-        //   dispatch(
-        //     setLogin({
-        //       user: loggedIn.user,
-        //       id: loggedIn.user._id,
-        //       name: name,
-        //       token: loggedIn.token,
-        //     })
-        //   );
-        //   const id=loggedIn.user._id;
-        //   const path = `/profile/${id}`;
         const path = `/`;
           navigate(path);
-        // }
-        // else{
-        //   alert("Wrong email or password");
-        // }
       };
      const handleFormSubmit = async (values, onSubmitProps) => {
         await formsubmit(values, onSubmitProps);
@@ -80,24 +62,20 @@ const courseSchema = yup.object().shape({
                                       name="TeacherName"
                                       className="loginInput"
                                       />
-                                      <input placeholder="TeacherCode"
-                                      className="loginInput"
-                                      type="TeacherCode"
-                                        onBlur={handleBlur}
+                                       <h1>Sessional?</h1>
+                                      <select
                                         onChange={handleChange}
-                                        value={values.TeacherCode}
-                                        name="TeacherCode"
-                                        />
-                                        <input placeholder="CourseName" 
-                                      onBlur={handleBlur}
-                                      onChange={handleChange}
-                                      value={values.CourseName}
-                                      name="CourseName"
-                                      className="loginInput"
-                                      />
+                                        onBlur={handleBlur}
+                                        value={values.Sessional}
+                                        name="Sessional"
+                                        className="loginInput"
+                                      >
+                                        <option value="" label="" />
+                                        <option value="true" label="Yes" />
+                                         <option value="false" label="No" />
+                                        </select>
                                       <input placeholder="CourseCode"
                                       className="loginInput"
-                                      type="TeacherCode"
                                         onBlur={handleBlur}
                                         onChange={handleChange}
                                         value={values.CourseCode}
@@ -112,8 +90,9 @@ const courseSchema = yup.object().shape({
                                         className="loginInput"
                                       >
                                         <option value="" label="" />
-                                        <option value="Sunday" label="Sunday" />
-                                         <option value="Monday" label="Monday" />
+                                        <option value="0" label="Sunday" />
+                                         <option value="1" label="Monday" />
+                                         <option value="2" label="Tuesday" />
                                         </select>
                                       <h1>Select time slot</h1>
                                       <select

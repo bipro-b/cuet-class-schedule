@@ -1,0 +1,47 @@
+/* Home.css */
+.banner-container {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .banner-img {
+    width: 100%;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  .home-container {
+    background-image: url('../../images/Minar.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Adjust the height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Adjust text color to be visible on the background */
+  }
+/* Home.css */
+.home-container h1 {
+  margin-top: 100px;
+  font-size: 1.5em;
+}
+/* Home.css */
+
+
+
+
+  
