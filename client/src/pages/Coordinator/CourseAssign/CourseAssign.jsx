@@ -28,7 +28,7 @@ const courseSchema = yup.object().shape({
         });
        const loggedIn = await loggedInResponse.json();
         onSubmitProps.resetForm();
-        const path = `/`;
+        const path = `/dashboard`;
           navigate(path);
       };
      const handleFormSubmit = async (values, onSubmitProps) => {
