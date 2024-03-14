@@ -5,7 +5,7 @@ import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 
 const NavBar = () => {
-  const { user, logout, teacher } = useAuth();
+  const { user, logout, admin } = useAuth();
 
   const activeStyle = {
     fontWeight: "bold",
@@ -36,7 +36,7 @@ const NavBar = () => {
               <NavLink to="/contact" className="nav-link" activeStyle={activeStyle}>
                 Contact
               </NavLink>
-              {user.email && (
+              { admin && (
                 <NavLink to="/dashboard" className="nav-link" activeStyle={activeStyle}>
                   Dashboard
                 </NavLink>
@@ -48,8 +48,9 @@ const NavBar = () => {
                   {/* Show user's display name */}
                   <span className="nav-link text-white">{user.displayName}</span>
                   <button
-                    className="btn btn-outline-light"
+                    className="btn bg-slate-400"
                     onClick={logout}
+                    style={{borderRadius:"5px",margin:"2px",marginTop:"3px"}}
                   >
                     Log Out
                   </button>
