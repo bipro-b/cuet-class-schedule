@@ -7,38 +7,46 @@ import { useSelector } from "react-redux";
 
 const Dashboard = ({ id }) => {
     const Navigate = useNavigate();
-    const [data, setData] = useState([]);
-  //   const data = [
-  //     { Day: 0, Time: 2, CourseCode : "CSE-400", Sessional: "false"},
-  //     { Day: 1, Time: 1, CourseCode : "CSE-401", Sessional: "false"},
-  //     { Day: 0, Time: 1, CourseCode : "CSE-401", Sessional: "false" },
-  //     { Day: 1, Time: 2, CourseCode : "CSE-400", Sessional: "false" },
-  //  ];
-   let data1 = [];
-  const getData = async () => {
-    const response = await fetch(`http://localhost:5000/api/course`, {
-      method: "GET",
-    //  headers: { Authorization: `Bearer ${token}` },
-    });
-    const dat1 = await response.json();
-    setData(dat1.result);
-    
-  };
- 
-  useEffect(() => {
-    getData();
-  }, []);
+   // const [data, setData] = useState([]);
+   const [data1, setData1] = useState([]);
+    const data = [
+      { Day: 0, Time: 3, CourseCode : "CSE-400", Credit:1, Sessional: false},
+      { Day: 1, Time: 1, CourseCode : "CSE-401", Credit:1, Sessional: false},
+      { Day: 0, Time: 1, CourseCode : "CSE-401", Credit:1, Sessional: false },
+      { Day: 1, Time: 2, CourseCode : "CSE-400", Credit:1, Sessional: false },
+   ];
+   const getData = async () => {
+  //   const response = await fetch(`http://localhost:5000/api/course`, {
+  //     method: "GET",
+  //   //  headers: { Authorization: `Bearer ${token}` },
+  //   });
+  //   const dat1 = await response.json();
+  //   setData(dat1.result);
+      setData1([]);
+   };
+   useEffect(() => {
+     getData();
+   }, []);
   if (data.length==0) return null;
+ 
   function generateTableRows() {
     let dp = new Array((1 << data.length) + 10);
     let mask = (1 << data.length)-1;
-
+    let frequency = new Map();
     function solve(ma) {
         if (dp[ma] !== undefined) {
             return dp[ma];
         }
-        if(ma==mask){
-           return 1;
+        let ok=1;
+        for(let i=0;i<data.length;i++)
+        {
+           if(frequency.get(data[i].CourseCode)!=data[i].Credit)
+           {
+             ok=0;
+           }
+        }
+        if(ok){
+          return 1;
         }
         for (let i = 0; i < data.length; i++) {
             if (ma & (1 << i)) {
@@ -55,6 +63,12 @@ const Dashboard = ({ id }) => {
               data1[data[i].Day][data[i].Time+2]=data[i].CourseCode;
             }
             else continue;
+            let item=data[i].CourseCode;
+            if (frequency.has(item)) {
+              frequency.set(item, frequency.get(item) + 1);
+            } else {
+              frequency.set(item, 1);
+            }
             if (solve(ma | (1 << i))) {
                 return dp[ma] = 1;
             }
@@ -68,23 +82,27 @@ const Dashboard = ({ id }) => {
                 data1[data[i].Day][data[i].Time+1]=-1;
                 data1[data[i].Day][data[i].Time+2]=-1;
                }
+
+               item=data[i].CourseCode;
+               frequency.set(item, frequency.get(item) - 1);
             }
         }
         return dp[ma] = 0;
     }
     
  
-  //sconsole.log(maxDay,maxTime);
+  
   for (let i = 0; i <= 4; i++) {
       data1[i] = []; // Initialize each row as an empty array
       for (let j = 0; j <= 8; j++) {
           data1[i][j] = -1; // In
       }
   }
+ 
    let result=solve(0);
-   console.log(result);
+   
    let dat=["Sun","Mon","Tue","Wed","Thu"];
-   //alert(result);
+  
    let cnt=-1;
    function f()
    {
