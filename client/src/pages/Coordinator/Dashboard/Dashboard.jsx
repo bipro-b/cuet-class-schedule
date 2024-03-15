@@ -7,28 +7,28 @@ import { useSelector } from "react-redux";
 
 const Dashboard = ({ id }) => {
     const Navigate = useNavigate();
-   // const [data, setData] = useState([]);
-   const [data1, setData1] = useState([]);
-    const data = [
-      { Day: 0, Time: 3, CourseCode : "CSE-400", Credit:1, Sessional: false},
-      { Day: 1, Time: 1, CourseCode : "CSE-401", Credit:1, Sessional: false},
-      { Day: 0, Time: 1, CourseCode : "CSE-401", Credit:1, Sessional: false },
-      { Day: 1, Time: 2, CourseCode : "CSE-400", Credit:1, Sessional: false },
-   ];
+    const [data, setData] = useState([]);
+   
+  //   const data = [
+  //     { Day: 0, Time: 3, CourseCode : "CSE-400", Credit:1, Sessional: false},
+  //     { Day: 1, Time: 1, CourseCode : "CSE-401", Credit:1, Sessional: false},
+  //     { Day: 0, Time: 1, CourseCode : "CSE-401", Credit:1, Sessional: false },
+  //     { Day: 1, Time: 2, CourseCode : "CSE-400", Credit:1, Sessional: false },
+  //  ];
    const getData = async () => {
-  //   const response = await fetch(`http://localhost:5000/api/course`, {
-  //     method: "GET",
-  //   //  headers: { Authorization: `Bearer ${token}` },
-  //   });
-  //   const dat1 = await response.json();
-  //   setData(dat1.result);
-      setData1([]);
+    const response = await fetch(`http://localhost:5000/api/course`, {
+      method: "GET",
+    //  headers: { Authorization: `Bearer ${token}` },
+    });
+    const dat1 = await response.json();
+    setData(dat1.result);
+      
    };
    useEffect(() => {
      getData();
    }, []);
   if (data.length==0) return null;
- 
+   let data1=[];
   function generateTableRows() {
     let dp = new Array((1 << data.length) + 10);
     let mask = (1 << data.length)-1;
