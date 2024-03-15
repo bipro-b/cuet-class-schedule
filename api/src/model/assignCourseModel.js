@@ -15,6 +15,10 @@ const courseSchema = mongoose.Schema({
         type: Number,
         required: true
     },
+    Credit:{
+        type: Number,
+        required: true
+    },
     Time:{
         type: Number,
         required: true
