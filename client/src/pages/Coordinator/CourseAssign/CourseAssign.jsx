@@ -93,20 +93,38 @@ const courseSchema = yup.object().shape({
                                         <option value="0" label="Sunday" />
                                          <option value="1" label="Monday" />
                                          <option value="2" label="Tuesday" />
+                                         <option value="3" label="Wednesday" />
+                                         <option value="4" label="Thursday" />
                                         </select>
                                       <h1>Select time slot</h1>
-                                      <select
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        value={values.Time}
-                                        name="Time"
-                                        className="loginInput"
-                                      >
-                                        <option value="" label="" />
-                                        <option value="1" label="9:00-9:50" />
-                                         <option value="2" label="9:50-10:40" />
-                                        <option value="3" label="11:00-11:50" />
-                                        </select>
+                                      {values.Sessional !="true" && <select
+                                                                    onChange={handleChange}
+                                                                    onBlur={handleBlur}
+                                                                    value={values.Time}
+                                                                    name="Time"
+                                                                    className="loginInput"
+                                                                  >
+                                                                    <option value="" label="" />
+                                                                    <option value="1" label="9:00-9:50" />
+                                                                    <option value="2" label="9:50-10:40" />
+                                                                    <option value="3" label="11:00-11:50" />
+                                                                    <option value="4" label="11:50-12:40" />
+                                                                    <option value="5" label="12:40-1:30" />
+                                                                    </select>
+                                      }
+                                      {values.Sessional==="true" && <select
+                                                                    onChange={handleChange}
+                                                                    onBlur={handleBlur}
+                                                                    value={values.Time}
+                                                                    name="Time"
+                                                                    className="loginInput"
+                                                                  >
+                                                                    <option value="" label="" />
+                                                                    <option value="0" label="8:10-10:40" />
+                                                                    <option value="3" label="11:00-1:30" />
+                                                                    <option value="6" label="2:30-5:00" />
+                                                                    </select>
+                                      }
                                       <button 
                                       type="submit"
                                       className="loginButton"
