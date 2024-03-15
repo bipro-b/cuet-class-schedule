@@ -81,6 +81,21 @@ const courseSchema = yup.object().shape({
                                         value={values.CourseCode}
                                         name="CourseCode"
                                         />
+                                        <h1>Course credit</h1>
+                                      <select
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.Credit}
+                                        name="Credit"
+                                        className="loginInput"
+                                      >
+                                        <option value="" label="" />
+                                        <option value="1" label="0.75" />
+                                         <option value="1" label="1" />
+                                         <option value="1" label="1.5" />
+                                         <option value="2" label="2" />
+                                         <option value="3" label="3" />
+                                        </select>
                                         <h1>Select day</h1>
                                       <select
                                         onChange={handleChange}
