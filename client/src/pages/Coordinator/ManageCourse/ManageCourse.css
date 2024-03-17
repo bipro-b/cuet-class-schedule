@@ -1,6 +1,8 @@
 .mem {
     background-color: rgba(0, 0, 0, 0.49);
-    padding: 10px; /* Add padding for better spacing */
+    /* padding: 10px;  */
+    margin-bottom: 100px;
+    margin-top: 0;
   }
   
   .title {

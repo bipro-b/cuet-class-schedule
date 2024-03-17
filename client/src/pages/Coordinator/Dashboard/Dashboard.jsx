@@ -125,14 +125,15 @@ const Dashboard = ({ id }) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container dashboard">
         <button  style={{
               backgroundColor: "black",
               padding: "10px",
               border: "5px",
               color: "white",
               borderRadius:"7px",
-              marginTop:"10px"
+              marginTop:"40px",
+              marginBottom:"30px"
 
             }} onClick={handleClick} className="loginButton">
           Submit Requirement
@@ -162,6 +163,7 @@ const Dashboard = ({ id }) => {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          marginBottom:"320px"
         }}
       >
         <Link to="/managecourse">

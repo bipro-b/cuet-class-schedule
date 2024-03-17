@@ -5,7 +5,7 @@ import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 
 const NavBar = () => {
-  const { user, logout, admin } = useAuth();
+  const { user, logout} = useAuth();
 
   const activeStyle = {
     fontWeight: "bold",
@@ -50,7 +50,7 @@ const NavBar = () => {
                   <button
                     className="btn bg-slate-400"
                     onClick={logout}
-                    style={{borderRadius:"5px",margin:"2px",marginTop:"3px"}}
+                    style={{borderRadius:"5px",margin:"2px",marginTop:"3px",marginLeft:"15px"}}
                   >
                     Logout
                   </button>

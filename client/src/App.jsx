@@ -7,6 +7,7 @@ import Register from './components/Logging/Register';
 import Dashboard from './pages/Coordinator/Dashboard/Dashboard';
 import CourseCoordinator from './pages/Coordinator/CourseAssign/CourseAssign';
 import ManageCourse from './pages/Coordinator/ManageCourse/ManageCourse';
+import Footer from './components/Footer';
 function App() {
   return (
     <>
@@ -32,6 +33,7 @@ function App() {
     <Route path='/profile' element={<Profile/>} /> 
     </Route> */}
   </Routes>
+  <Footer/>
   </BrowserRouter>
     
    </AuthProvider>
