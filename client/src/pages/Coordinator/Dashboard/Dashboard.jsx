@@ -1,9 +1,6 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { Button } from "react-bootstrap";
 
 const Dashboard = ({ id }) => {
@@ -17,7 +14,7 @@ const Dashboard = ({ id }) => {
   //     { Day: 1, Time: 2, CourseCode : "CSE-400", Credit:1, Sessional: false },
   //  ];
   const getData = async () => {
-    const response = await fetch(`http://localhost:5000/api/course`, {
+    const response = await fetch(`https://cuet-class-routine.onrender.com/api/course`, {
       method: "GET",
       //  headers: { Authorization: `Bearer ${token}` },
     });
@@ -136,7 +133,7 @@ const Dashboard = ({ id }) => {
               marginBottom:"30px"
 
             }} onClick={handleClick} className="loginButton">
-          Submit Requirement
+          Make Routine
         </button>
       </div>
 

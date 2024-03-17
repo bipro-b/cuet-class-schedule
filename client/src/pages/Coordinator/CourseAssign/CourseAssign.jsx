@@ -18,7 +18,7 @@ const CourseCoordinator = () => {
   const navigate = useNavigate();
   const formsubmit = async (values, onSubmitProps) => {
     //console.log(values);
-    const loggedInResponse = await fetch(`http://localhost:5000/api/course`, {
+    const loggedInResponse = await fetch(`https://cuet-class-routine.onrender.com/api/course`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -43,13 +43,10 @@ const CourseCoordinator = () => {
         >
           {({
             values,
-            errors,
-            touched,
             handleBlur,
             handleChange,
             handleSubmit,
-            setFieldValue,
-            resetForm,
+           
           }) => (
             <form onSubmit={handleSubmit} className="form">
               <input

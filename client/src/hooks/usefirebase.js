@@ -83,7 +83,7 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/auth/${user.email}`)
+    fetch(`https://cuet-class-routine.onrender.com/api/auth/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
@@ -109,7 +109,7 @@ const useFirebase = () => {
   const saveUser = async (username, department, email, password, method) => {
     const user = { username, department, email, password };
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch("https://cuet-class-routine.onrender.com/api/auth/register", {
         method: method,
         headers: {
           "Content-Type": "application/json",

@@ -7,7 +7,7 @@ const ManageCourse = () => {
   const [editedCourses, setEditedCourses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/course")
+    fetch("https://cuet-class-routine.onrender.com/api/course")
       .then((res) => res.json())
       .then((data) => {
         setCourse(data.result);
@@ -21,7 +21,7 @@ const ManageCourse = () => {
 const handleDelete = (id) => {
   const proceed = window.confirm("Are you sure you want to delete?");
   if (proceed) {
-    const url = `http://localhost:5000/api/course/${id}`;
+    const url = `https://cuet-class-routine.onrender.com/api/course/${id}`;
     fetch(url, {
       method: "DELETE",
     })
@@ -45,7 +45,7 @@ const handleDelete = (id) => {
   // update assign
   const handleUpdate = (id, index) => {
     const updatedCourse = editedCourses[index];
-    const url = `http://localhost:5000/api/course/${id}`;
+    const url = `https://cuet-class-routine.onrender.com/api/course/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -59,7 +59,7 @@ const handleDelete = (id) => {
         if (data.updatedCount) {
           alert("Updated successfully");
           // Fetch updated course data
-          fetch("http://localhost:5000/api/course")
+          fetch("https://cuet-class-routine.onrender.com/api/course")
             .then((res) => res.json())
             .then((data) => {
               setCourse(data.result);
