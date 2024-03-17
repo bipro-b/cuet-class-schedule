@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-
+const path = require("path")
  
 app.use(express.json());
 app.use(cors());
@@ -13,14 +13,33 @@ app.get("/",(req,res)=>{
 
  const authRoute = require("./src/routes/authRoute");
  const courseRoute = require("./src/routes/courseRoute")
-/*const categoryRoute = require("./src/routes/category")
-const userRoute = require("./src/routes/user") */
+
 
 app.use("/api/auth",authRoute);
 app.use("/api/course",courseRoute);
-/*app.use("/api/v1/category",categoryRoute);
-app.use("/api/v1/user",userRoute);
- */
 
+
+
+
+app.use(express.static(path.join(__dirname,'/client/build')));
+
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname,'client','dist','index.html'));
+});
+
+
+// middleware
+
+
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+  return res.status(statusCode).json({
+    success: false,
+    statusCode,
+    message,
+  });
+});
 
 module.exports = app;
