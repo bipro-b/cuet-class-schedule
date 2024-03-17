@@ -44,28 +44,28 @@ exports.getCourse = async(req,res,next)=>{
     }
 }
 
-exports.getCourseById = async(req,res,next)=>{
+exports.getCourseById = async (req, res, next) => {
     try {
-        
-        const {id} = req.params;
-
-        const result = await getCourseServiceById(id);
-
-        res.status(200).json({
-            status:"Success",
-            message:"Successfully fetch data.",
-            result
-            
-        })
-        
+      const { id } = req.params;
+  
+      // Call your service function to get the course by ID
+      const result = await getCourseServiceById(id);
+  
+      // Respond with the result
+      res.status(200).json({
+        status: "Success",
+        message: "Successfully fetched data.",
+        result
+      });
     } catch (error) {
-        res.status(400).json({
-            status:"Fails",
-            message:"Couldn't fetch data",
-            error:error.message
-        })
+      // Handle errors
+      res.status(400).json({
+        status: "Fail",
+        message: "Couldn't fetch data",
+        error: error.message
+      });
     }
-}
+  };
 
 exports.updateCourseById = async(req,res,next)=>{
     try {

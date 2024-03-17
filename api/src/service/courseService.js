@@ -9,9 +9,10 @@ exports.getCourseService = async () => {
   return course;
 };
 exports.getCourseServiceById = async (id) => {
-  const Course = await Course.findOne({ _id: id });
-  return Course;
+  const course = await Course.findOne({ _id: id });
+  return course;
 };
+
 
 exports.updateCourseServiceById = async (id, data) => {
   const course = await Course.updateOne(
