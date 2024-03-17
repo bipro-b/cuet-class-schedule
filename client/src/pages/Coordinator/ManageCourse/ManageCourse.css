@@ -1,0 +1,41 @@
+.mem {
+    background-color: rgba(0, 0, 0, 0.49);
+    padding: 10px; /* Add padding for better spacing */
+  }
+  
+  .title {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Adjust grid to accommodate all columns */
+    color: rgb(13, 11, 11);
+    background-image: linear-gradient(rgba(231, 239, 231, 0.54), cyan);
+    padding: 10px;
+    text-align: center; /* Center align text in all headers */
+  }
+  
+  .edit {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Match grid columns with headers */
+    gap: 5px; /* Add gap between cells */
+    align-items: center; /* Center align items vertically */
+    background-color: rgba(255, 255, 255, 0.8); /* Example background color */
+    border-radius: 5px; /* Example border radius */
+  }
+  
+  .edit:hover {
+    transform: translate3d(1px, 10%, 1em);
+  }
+  
+  /* Style text fields for better visibility and interaction */
+  .MuiTextField-root {
+    width: 100%; /* Make text fields full width */
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: center; /* Center align buttons */
+    gap: 5px; /* Add gap between buttons */
+  }
+  
+  .btn{
+    margin-left: 10px;
+  }
