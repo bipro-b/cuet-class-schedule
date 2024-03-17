@@ -1,11 +1,33 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
 const cors = require("cors");
+const dotenv = require("dotenv");
+const path =require('path');
+const colors = require("colors");
 
-const path = require("path")
- 
+
+dotenv.config();
+
+
 app.use(express.json());
 app.use(cors());
+
+mongoose
+  .connect(process.env.MONGO)
+  .then(() => {
+    console.log(`Connected to MongoDB!`.green.bold);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+const port = process.env.PORT || 8000;
+
+app.listen(port, () => {
+  console.log(`App is running on port ${port}`.yellow.bold);
+});
+
 
 app.get("/",(req,res)=>{
     res.send("server is running.");
@@ -42,4 +64,3 @@ app.use((err, req, res, next) => {
   });
 });
 
-module.exports = app;
