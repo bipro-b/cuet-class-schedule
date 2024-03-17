@@ -2,4 +2,4 @@
 [![Watch the video](https://img.youtube.com/vi/)](https://youtu.be/LKDu3g1R3d8)
 
 
-[![Spring Boot Swing Reservations](https://github.com/DanielMichalski/spring-boot-java-swing-reservations/blob/master/.github/gifs/application.gif)](https://youtu.be/LKDu3g1R3d8 "Full stack project")
+[![CUET CLASS ROUTINE](https://github.com/bipro-b/cuet-class-schedule/raw/main/classroutine-ezgif.com-video-to-gif-converter.gif)](https://youtu.be/LKDu3g1R3d8 "Full stack project")
