@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <div className="header">
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Container style={{display:"flex", justifyContent:"center", alignItems:"center",alignContent:"space-around" }}>
+        <Container style={{display:"flex",flexDirection:"row", justifyContent:"center", alignItems:"center",alignContent:"space-around" , marginTop:0}}>
           <Navbar.Brand as={NavLink} to="/home">
             <img
               src={logo}
@@ -36,7 +36,7 @@ const NavBar = () => {
               <NavLink to="/contact" className="nav-link" activeStyle={activeStyle}>
                 Contact
               </NavLink>
-              { admin && (
+              { user.email && (
                 <NavLink to="/dashboard" className="nav-link" activeStyle={activeStyle}>
                   Dashboard
                 </NavLink>
