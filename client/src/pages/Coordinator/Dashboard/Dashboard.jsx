@@ -133,7 +133,7 @@ const Dashboard = ({ id }) => {
               marginBottom:"30px"
 
             }} onClick={handleClick} className="loginButton">
-          Make Routine
+          Assign Courses
         </button>
       </div>
 
@@ -177,7 +177,7 @@ const Dashboard = ({ id }) => {
             variant="contained"
             color="primary"
           >
-            Go to Manage Course
+            Manage Courses
           </Button>
         </Link>
       </div>

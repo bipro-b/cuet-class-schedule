@@ -35,7 +35,7 @@ const CourseCoordinator = () => {
     <div className="login">
                   
       <div className="loginWrapper">
-      <div style={{marginTop:"40px"}}><h1 style={{color:"black", textAlign:"center",fontSize:"30px",fontWeight:"bold"}}>Assiging course</h1></div>
+      <div style={{marginTop:"40px"}}><h1 style={{color:"black", textAlign:"center",fontSize:"30px",fontWeight:"bold"}}>Assign courses</h1></div>
         <Formik
           onSubmit={handleFormSubmit}
           initialValues={initialValuesCourse}
