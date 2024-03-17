@@ -30,6 +30,7 @@ const Dashboard = ({ id }) => {
 
   if (data.length == 0) return null;
   let data1 = [];
+  console.log(data);
   function generateTableRows() {
     let dp = new Array((1 << data.length) + 10);
     let mask = (1 << data.length) - 1;
@@ -171,7 +172,7 @@ const Dashboard = ({ id }) => {
               border: "5px",
               color: "white",
               borderRadius:"7px",
-              marginTop:"10px"
+              marginTop:"10px",
 
             }}
             variant="contained"

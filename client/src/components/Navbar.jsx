@@ -15,7 +15,7 @@ const NavBar = () => {
   return (
     <div className="header">
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Container style={{display:"flex",flexDirection:"row", justifyContent:"center", alignItems:"center",alignContent:"space-around" , marginTop:0}}>
+        <Container style={{display:"flex", flexDirection:"row",justifyContent:"center", alignItems:"center", alignContent:"space-around" , marginTop:0}}>
           <Navbar.Brand as={NavLink} to="/home">
             <img
               src={logo}
@@ -52,7 +52,7 @@ const NavBar = () => {
                     onClick={logout}
                     style={{borderRadius:"5px",margin:"2px",marginTop:"3px"}}
                   >
-                    Log Out
+                    Logout
                   </button>
                 </>
               ) : (
