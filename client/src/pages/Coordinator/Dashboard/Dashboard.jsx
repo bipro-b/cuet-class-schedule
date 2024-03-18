@@ -94,13 +94,16 @@ const Dashboard = ({ id }) => {
     }
 
     let result = solve(0);
-
     let dat = ["Sun", "Mon", "Tue", "Wed", "Thu"];
 
     let cnt = -1;
     function f() {
       cnt++;
       return dat[cnt];
+    }
+    if(!result)
+    {
+      alert("Cannot make valid routine with given requirements");
     }
     return data1.map((row, rowIndex) => (
       <tr key={rowIndex}>
