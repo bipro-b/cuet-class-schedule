@@ -11,7 +11,6 @@ const ManageCourse = () => {
       .then((res) => res.json())
       .then((data) => {
         setCourse(data.result);
-        // Initialize editedCourses state with empty objects for each course item
         setEditedCourses(Array(data.result.length).fill({}));
       })
       .catch((error) => console.error("Error fetching data:", error));

@@ -18,7 +18,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
-  const [admin, setAdmin] = useState(false);
+  const [role, setRole] = useState("");
 
   const auth = getAuth();
 
@@ -85,12 +85,13 @@ const useFirebase = () => {
   useEffect(() => {
     fetch(`https://cuet-class-routine.onrender.com/api/auth/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setAdmin(data.admin));
+      .then((data) => setRole(data?.result?.role));
+
   }, [user.email]);
-  
-  useEffect(() => {
-    console.log(admin);
-  }, [admin]);
+
+  // useEffect(() => {
+  //   console.log(role);
+  // }, [role]);
 
 
 
@@ -134,7 +135,7 @@ const useFirebase = () => {
   return {
     signInUsingGoogle,
     user,
-    admin,
+    role,
     isLoading,
     authError,
     registerUser,

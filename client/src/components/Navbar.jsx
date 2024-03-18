@@ -5,9 +5,12 @@ import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 
 const NavBar = () => {
-  const { user, logout} = useAuth();
+  // const [role,setRole] = useState("");
+  const { user, logout,role} = useAuth();
   console.log(user.email);
-  console.log(user.department);
+  console.log(role);
+
+
   const activeStyle = {
     fontWeight: "bold",
     color: "rgba(0, 0, 0, 0.312)",
@@ -37,9 +40,13 @@ const NavBar = () => {
               <NavLink to="/contact" className="nav-link" activeStyle={activeStyle}>
                 Contact
               </NavLink>
-              { user.email && (
+              { role==="admin"? (
                 <NavLink to="/dashboard" className="nav-link" activeStyle={activeStyle}>
                   Dashboard
+                </NavLink>
+              ):(
+                <NavLink to="/home" className="nav-link" activeStyle={activeStyle}>
+                  Home
                 </NavLink>
               )}
             </Nav>
