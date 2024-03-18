@@ -1,25 +1,26 @@
 const User = require("../model/userModel");
-const { getCompanyServiceById } = require("../service/getUserServiceByEmail");
+const { getCompanyServiceById, getUser } = require("../service/userService");
 
-exports.getUsers = async(req,res,next)=>{
+exports.getUsers = async (req, res, next) => {
     try {
-
-        const users = await User.find({});
+      const result = await getUser(req.body);
+      if (result) {
         res.status(200).json({
-            status:"Success",
-            message:"Successfully get user data",
-            users
-        })
-        
+          status: "Success",
+          message: "Successfully get user data",
+          result,
+        });
+      } else {
+        throw new Error("No users found or there was an error fetching users.");
+      }
     } catch (error) {
-        res.status(500).json({
-            status:"Failed",
-            message:"User data is not fetched!",
-            error:error.message
-        })
-        
+      res.status(500).json({
+        status: "Failed",
+        message: "User data is not fetched!",
+        error: error.message,
+      });
     }
-}
+  };
 
 exports.getUserByEmail = async(req,res,next)=>{
     try {
