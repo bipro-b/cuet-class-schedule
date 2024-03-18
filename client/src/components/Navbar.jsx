@@ -6,7 +6,8 @@ import "./Navbar.css";
 
 const NavBar = () => {
   const { user, logout} = useAuth();
-
+  console.log(user.email);
+  console.log(user.department);
   const activeStyle = {
     fontWeight: "bold",
     color: "rgba(0, 0, 0, 0.312)",
