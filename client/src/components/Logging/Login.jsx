@@ -44,7 +44,7 @@ import {
   
     return (
       <>
-        <Container className="mt-5" style={{ backgroundColor: "#F6F7F9" }}>
+        <Container className="mt-5" style={{ backgroundColor: "#F6F7F9",marginBottom:"250px"}}>
           <Row lg={2} md={1} style={{display:"flex", alignItems:"space-around"}}>
             <div>
               <Grid

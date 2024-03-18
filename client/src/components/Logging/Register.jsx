@@ -36,7 +36,7 @@ import {
     };
     return (
       <>
-        <Container style={{ backgroundColor: "#F6F7F9" }}>
+        <Container style={{ backgroundColor: "#F6F7F9" ,marginBottom:"200px"}}>
           <Row lg={2} md={1} style={{display:"flex", alignItems:"space-around"}}>
             <div>
               <Grid container spacing={2} sx={{ marginTop: "50px" }}>

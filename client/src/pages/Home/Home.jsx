@@ -1,12 +1,13 @@
 import React from 'react';
 import Banner from '../../components/Banner';
 import './Home.css'; 
+import Routine from './Routine';
 
 const Home = () => {
   return (
     <div className="home-container">
       <Banner />
-      <h1>It's home</h1>
+      <Routine/>
     </div>
   );
 };
