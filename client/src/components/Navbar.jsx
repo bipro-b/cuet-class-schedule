@@ -46,7 +46,6 @@ const NavBar = () => {
                 </NavLink>
               ):(
                 <NavLink to="/home" className="nav-link" activeStyle={activeStyle}>
-                  Home
                 </NavLink>
               )}
             </Nav>
