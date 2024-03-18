@@ -42,7 +42,6 @@ const handleDelete = (id) => {
 };
 
 
-  // update assign
   const handleUpdate = (id, index) => {
     const updatedCourse = editedCourses[index];
     const url = `https://cuet-class-routine.onrender.com/api/course/${id}`;
@@ -58,12 +57,10 @@ const handleDelete = (id) => {
         console.log(data);
         if (data.updatedCount) {
           alert("Updated successfully");
-          // Fetch updated course data
           fetch("https://cuet-class-routine.onrender.com/api/course")
             .then((res) => res.json())
             .then((data) => {
               setCourse(data.result);
-              // Reset editedCourses state for the updated course item
               setEditedCourses((prevEditedCourses) => {
                 const newEditedCourses = [...prevEditedCourses];
                 newEditedCourses[index] = {};
@@ -76,7 +73,6 @@ const handleDelete = (id) => {
       .catch((error) => console.error("Error updating data:", error));
   };
 
-  // handle input change for editing course
   const handleInputChange = (event, index) => {
     const { name, value } = event.target;
     setEditedCourses((prevEditedCourses) => {
